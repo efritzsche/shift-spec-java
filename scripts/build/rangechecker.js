@@ -37,8 +37,6 @@ import com.shapesecurity.shift.es${year}.ast.Module;
 import com.shapesecurity.shift.es${year}.reducer.MonoidalReducer;
 import javax.annotation.Nonnull;
 
-import static org.junit.Assert.assertTrue;
-
 public class RangeCheckerReducer extends MonoidalReducer<RangeCheckerReducer.RangeChecker> {
     private final ParserWithLocation parserWithLocation;
 
@@ -84,6 +82,10 @@ public class RangeCheckerReducer extends MonoidalReducer<RangeCheckerReducer.Ran
         public RangeChecker(SourceSpan sourceSpan) {
             this(sourceSpan.start.offset, sourceSpan.end.offset);
         }
+    }
+
+    private static void assertTrue(boolean condition) {
+        if (!condition) throw new AssertionError("Expected condition to be true but was false");
     }
 `;
 
